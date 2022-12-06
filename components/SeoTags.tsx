@@ -6,7 +6,7 @@ const TWITTER_HANDLE = "d3portillo"
 export const DEFAULT_SEO = {
   title: "D3Portillo / Template NextJs ⚡",
   url: BASE_URL,
-  seoURL: `${BASE_URL}/seo.png`,
+  imageURL: `${BASE_URL}/seo.png`,
   description: "A template repo that hosts my day-to-day used tech stack.",
 }
 
@@ -45,8 +45,9 @@ function SeoTags(props: Partial<SeoDefinitions> = {}) {
         description: SEO.description,
         images: [
           {
-            url: SEO.seoURL,
-            alt: SEO.seoURL,
+            // located at -> /public/seo.png
+            url: SEO.imageURL,
+            alt: SEO.imageURL,
             width: 1200,
             height: 630,
           },
