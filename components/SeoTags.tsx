@@ -1,5 +1,5 @@
-import { NextSeo } from "next-seo"
 import { useMemo } from "react"
+import { NextSeo } from "next-seo"
 
 const BASE_URL = "https://d3portillo.me"
 const TWITTER_HANDLE = "d3portillo"
