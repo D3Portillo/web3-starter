@@ -3,18 +3,17 @@ import "@rainbow-me/rainbowkit/styles.css"
 import type { AppProps } from "next/app"
 
 import { Roboto } from "@next/font/google"
-import { WagmiConfig, createClient, chain, configureChains } from "wagmi"
+import { WagmiConfig, createClient, configureChains } from "wagmi"
+import { mainnet } from "wagmi/chains"
 import { publicProvider } from "wagmi/providers/public"
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
 import { Toaster } from "react-hot-toast"
 
-const { provider, chains } = configureChains(
-  [chain.mainnet],
-  [publicProvider()]
-)
+const { provider, chains } = configureChains([mainnet], [publicProvider()])
 
 const { connectors } = getDefaultWallets({
   appName: "replace.this",
+  // replace with your appUrl or appName
   chains,
 })
 
