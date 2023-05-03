@@ -23,10 +23,22 @@ const client = createClient({
   connectors,
 })
 
-const fontRoboto = Roboto({ weight: ["400", "500", "700"], subsets: ["latin"] })
+const nextFont = Roboto({ weight: ["400", "500", "700"], subsets: [] })
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={fontRoboto.className}>
+    <main className={nextFont.className}>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            :root [data-rk] {
+              --rk-radii-modal: 1rem;
+            }
+            [data-rk] * {
+              font-family: ${nextFont.style.fontFamily} !important;
+            }
+          `,
+        }}
+      />
       <Toaster />
       <WagmiConfig client={client}>
         <RainbowKitProvider chains={chains}>
