@@ -21,15 +21,15 @@ export const useAccountBalance = (token?: string) => {
 }
 
 export const useConnectedAccount = () => {
-  const [isConnected, setIsConnected] = useState(false)
-  const { address } = useAccount()
+  const { address: rkAddress } = useAccount()
+  const [address, setAddress] = useState("")
 
   useEffect(() => {
-    setIsConnected((address?.length || 0) > 1)
-  }, [address])
+    setAddress(rkAddress || "")
+  }, [rkAddress])
 
   return {
-    isConnected,
+    isConnected: address.length > 1,
     address,
   }
 }
